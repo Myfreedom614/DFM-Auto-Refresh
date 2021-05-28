@@ -8,6 +8,7 @@
 // @include      http*://onesupport.crm.dynamics.com/main.aspx?appid=*
 // @grant        none
 // @run-at       document-idle
+// @copyright	 2021, Franklin Chen
 // ==/UserScript==
 
 (function() {
