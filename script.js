@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         DFM Auto Refresh
-// @namespace    http://msftbot.com
+// @namespace    https://msftbot.com
 // @version      1.0
 // @description  DFM Auto Refresh
 // @author       Franklin Chen
