@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DFM Auto Refresh
 // @namespace    https://greasyfork.org/en/scripts/427141-dfm-auto-refresh
-// @version      1.2
+// @version      1.3
 // @description  DFM Auto Refresh Script
 // @author       Franklin Chen
 // @icon         https://www.google.com/s2/favicons?domain=dynamics.com
@@ -21,14 +21,16 @@
             localStorage.setItem("dfm_auto_fresh", 'false');
             if(autoRefreshTimer!=null){
                 clearInterval(autoRefreshTimer);
-                console.log('Stopped Auto Refresh');
+                console.log('Stopped auto-refresh');
+                alert('Stopped auto-refresh');
             }
             return;
         }
         var btn = document.querySelector('button[aria-label="Refresh"]');
         if (btn) {
             localStorage.setItem("dfm_auto_fresh", 'true');
-            console.log('Started Auto Refresh');
+            console.log('Started auto-refresh');
+            alert('Started auto-refresh');
             autoRefreshTimer = setInterval (
                 function () {
                     btn.click();
