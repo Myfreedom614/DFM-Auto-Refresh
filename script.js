@@ -2,7 +2,7 @@
 // @name         DFM Auto Refresh
 // @namespace    https://msftbot.com
 // @version      1.0
-// @description  DFM Auto Refresh
+// @description  DFM Auto Refresh Script
 // @author       Franklin Chen
 // @icon         https://www.google.com/s2/favicons?domain=dynamics.com
 // @include      http*://onesupport.crm.dynamics.com/main.aspx?appid=*
