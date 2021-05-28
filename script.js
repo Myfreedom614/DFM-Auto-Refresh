@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         DFM Auto Refresh
 // @namespace    https://msftbot.com
-// @version      1.0
+// @version      1.1
 // @description  DFM Auto Refresh Script
 // @author       Franklin Chen
 // @icon         https://www.google.com/s2/favicons?domain=dynamics.com
-// @include      http*://onesupport.crm.dynamics.com/main.aspx?appid=*
+// @include      http*://onesupport.crm.dynamics.com/main.aspx*
 // @grant        none
 // @run-at       document-idle
 // @copyright	 2021, Franklin Chen
@@ -24,18 +24,20 @@
             }
             return;
         }
-        autoRefreshTimer = setInterval (
-        function () {
-            var btn = document.querySelector('button[aria-label="Refresh"]');
-            if (btn) {
-                btn.click();
-                localStorage.setItem("dfm_auto_fresh", 'true');
-            } else {
-                alert("No Button found");
-            }
+        var btn = document.querySelector('button[aria-label="Refresh"]');
+        if (btn) {
+            localStorage.setItem("dfm_auto_fresh", 'true');
+            console.log('Start Auto Refresh');
+            autoRefreshTimer = setInterval (
+                function () {
+                    btn.click();
+                    console.log('Auto Refresh - '+new Date());
+                }
+                , 60 * 1000 //1 min
+            );
+        } else {
+            alert("No Button found");
         }
-        , 60 * 1000 //1 min
-        );
 	};
 
     var pageMenuBarCheckTimer = setInterval (
