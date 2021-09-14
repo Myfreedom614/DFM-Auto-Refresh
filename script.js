@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DFM Auto Refresh
 // @namespace    https://greasyfork.org/en/scripts/427141-dfm-auto-refresh
-// @version      1.5
+// @version      1.6
 // @description  DFM Auto Refresh Script
 // @author       Franklin Chen
 // @icon         https://www.google.com/s2/favicons?domain=dynamics.com
@@ -21,15 +21,15 @@
             localStorage.setItem("dfm_auto_fresh", 'false');
             if(autoRefreshTimer!=null){
                 clearInterval(autoRefreshTimer);
-                console.log('Stopped auto-refresh');
+                console.log('Stopped auto-refresh'); document.querySelector('button[id="btnAutoRefresh"]').style.backgroundColor="FireBrick";
                 alert('Stopped auto-refresh');
             }
             return;
         }
-        var btn = document.querySelector('button[aria-label="Refresh"]');
+        var btn = document.querySelector('button[id*="Mscrm.Modern.refreshCommand"][id$="button"]');
         if (btn) {
             localStorage.setItem("dfm_auto_fresh", 'true');
-            console.log('Started auto-refresh');
+            console.log('Started auto-refresh'); document.querySelector('button[id="btnAutoRefresh"]').style.backgroundColor="greenyellow";
             alert('Started auto-refresh');
             autoRefreshTimer = setInterval (
                 function () {
@@ -49,7 +49,7 @@
             if(matches.length > 0) {
                 clearInterval(pageMenuBarCheckTimer);
                 var liElement = document.createElement('li');
-                liElement.innerHTML='<button id="btnAutoRefresh" type="button" style="background-color: greenyellow;" class="pa-ao pa-ap pa-gh pa-bq pa-he pa-i pa-ax pa-o pa-hf pa-hg pa-hh flexbox"><span aria-hidden="true" class="pa-bi pa-am pa-a pa-cm "><span class="pa-ba pa-k pa-am pa-cg "><img src="/uclient/resources/images/Refresh.svg?v=1.4.2625-2104.3" alt="Auto Refresh" class="pa-hc pa-gf pa-hb pa-gg pa-az " style="width: 16px;"></span></button>';
+                liElement.innerHTML='<button id="btnAutoRefresh" type="button" style="background-color: FireBrick;" class="pa-ao pa-ap pa-gh pa-bq pa-he pa-i pa-ax pa-o pa-hf pa-hg pa-hh flexbox"><span aria-hidden="true" class="pa-bi pa-am pa-a pa-cm "><span class="pa-ba pa-k pa-am pa-cg "><img src="/uclient/resources/images/Refresh.svg?v=1.4.2625-2104.3" alt="Auto Refresh" class="pa-hc pa-gf pa-hb pa-gg pa-az " style="width: 16px;"></span></button>';
                 var firstChild = matches[0].querySelectorAll('li')[0];
                 matches[0].insertBefore(liElement, firstChild);
 
